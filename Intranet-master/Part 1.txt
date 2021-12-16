@@ -1,0 +1,98 @@
+Classes
+
+abstract User
++ Manager
++ Teacher
++ Student
++ Admin
++ TechSupport
+
+Course
+Mark
+CourseFile
+
+ROLES:
+USER
+TEACHER, STUDENT, MANAGER, ADMIN extends user
+
+
+USERs -> AUTH -> Deserialize -> USERs
+
+0. User
+	int user_id;
+	String login;
+	String password;
+1. Teacher
+	int teacher_id;
+	vector <Course> courses;
+	String t_info; - File
+	addCourse(String s, int course_id);
+	manageCourse(int course_id);
+	viewCourse(int course_id);
+	viewFiles(int course_id);
+	addFile(new File("input.txt"), int file_id);
+	removeFile(int file_id);	
+	viewStudents(int course_id);
+	getStudentInfo(int course_id, int student_id);
+	putMarks(int course_id);
+	sendOrder(); == saveChanges();
+2. Student
+	int student_id;
+	String st_info; - File
+	vector <Course> courses;
+	map <Course, mark> transcript; --
+	registerForCourse(Course course);
+	viewFiles(int course_id);
+	getTeacherInfo(int course_id);
+	viewMarks(int course_id);
+	viewTranscript();
+3. Admin
+	addUser(int id);
+	removeUser(int id);
+	updateUser(int id);
+	getUserInfo(int id);
+4. Manager
+	int manager_id;
+	String info;
+	addCourse(String s, int course_id, vector <course> prereq);
+	viewStudentsInfo();
+	viewTeachersInfo();
+	sendMessage(int teacher_id);
+5. TechSupport
+	acceptOrder();
+	rejectOrder();
+	viewOrders();
+
+
+Intermediate:
+
+Marks
+Courses
+Info
+Orders
+Users
+Teachers
+Students
+Transcript
+News
+Files
+
+
+1. Admin updateUser();
+2.+ Teacher viewInfo(id/Student);
+3. sendRequest(); type of request teacher/student
+4. Manager addNews/postNews, viewInfo
+5. Grade enum
+
+
+Code:
+1. Fix enum fields (get/set/constructor)
+	request
+	change status
+2. IDK
+	+ globalDate
+	attendance
+	schedule
+3. + List of all Courses
+Сериализация, лог файлы, генерировать айди, интерфейсы
+4. Map <Login, Password> users Serializable

@@ -1,0 +1,26 @@
+package enums;
+
+public enum Faculty {
+	FACULTY_OF_INFORMATION_TECHNOLOGIES,
+	BUSINESS_SCHOOL,
+	INTERNATIONAL_SCHOOL_OF_ECONOMICS,
+	SCHOOL_OF_MATHEMATICS_AND_CYBERNETICS,
+	FACULTY_OF_GEOLOGY_AND_EXPLORATION,
+	FACULTY_OF_ENERGY_AND_OIL_AND_GAS_INDUSTRY,
+	FACULTY_OF_GENERAL_EDUCATION,
+	KAZAKHSTAN_MARITIME_ACADEMY,
+	CENTER_OF_CHEMICAL_ENGINEERING,
+	SCIENTIFIC_AND_EDUCATIONAL_CENTER_OF_ALTERNATIVE_ENERGY_AND_NANOTECHNOLOGY;
+	
+	public String toString() {
+		String[] words = this.name().split("_");
+		String name = "";
+		for (int i = 0; i < words.length; i++) {
+			if (i != 0) {
+				name += " ";
+				name += words[i];
+			}
+		}
+		return name;
+	}
+}
